@@ -1,0 +1,17 @@
+# Use postgres/example user/password credentials
+#docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+#postgresql://backend:nodemon-postgres@10.0.1.23:5432/expense-tracker
+version: "3.1"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: nodemon-postgres
+      POSTGRES_DB: expense-tracker
+      POSTGRES_USER: backend
+
+  adminer:
+    image: adminer
+    ports:
+      - 3211:3211
